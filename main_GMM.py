@@ -39,7 +39,7 @@ if __name__ == '__main__':
     print("Visualize logs using: tensorboard --logdir={0}".format(log_dir))
     writer = SummaryWriter(log_dir)
 
-    sampler_list = [('MALA 0.1', samplers.hmc_integrate, {'epsilon': 0.1, 'k': 1, 'mh_reject': True})]
+    sampler_list = [('MALA 0.1', samplers.hmc_integrate, {'epsilon': 0.1, 'k': 5, 'mh_reject': True})]
 
     n_steps = 50  # number of gradient steps
 
@@ -62,7 +62,7 @@ if __name__ == '__main__':
         energy = e_model.energy
 
         xs, vs, ts = sampler(energy, x0, n_steps, **kwargs)
-        data_toy.plot_toy_density(plot_truth=True, f=energy,x_s_t=xs)
+        #data_toy.plot_toy_density(plot_truth=True, x_s_t=xs)
         print('length', len(xs))
 
         colors = ['tab:blue', 'tab:green', 'cyan', 'magenta', 'blue', 'darkgreen', 'cyan', 'lime']
@@ -89,6 +89,7 @@ if __name__ == '__main__':
     with t.no_grad():
         energy_all = energy(t.tensor(x_grid, dtype=xs.dtype)).cpu().numpy()
 
+    data_toy.plot_toy_density(plot_truth=True,f=energy_all, x_s_t=xs)
     e_history_grid = energy_all.reshape((n_x, n_x))
     xs_grid = x_grid[:, 0].reshape((n_x, n_x))
     ys_grid = x_grid[:, 1].reshape((n_x, n_x))
