@@ -8,7 +8,7 @@ from torch.utils.tensorboard import SummaryWriter
 from esh import datasets, utils, samplers
 import matplotlib.pyplot as plt
 from matplotlib.collections import LineCollection
-
+import matplotlib.pyplot
 from scipy.interpolate import interp1d
 
 
@@ -41,7 +41,7 @@ if __name__ == '__main__':
 
     sampler_list = [('MALA 0.1', samplers.hmc_integrate, {'epsilon': 0.1, 'k': 5, 'mh_reject': True})]
 
-    n_steps = 50  # number of gradient steps
+    n_steps = 5000  # number of gradient steps
 
     save = []
 
@@ -67,7 +67,7 @@ if __name__ == '__main__':
 
         colors = ['tab:blue', 'tab:green', 'cyan', 'magenta', 'blue', 'darkgreen', 'cyan', 'lime']
         #import IPython; IPython.embed()
-        if k == 0:
+        if k == 10:
             new_ts = t.linspace(ts[0], ts[-1], steps=500)  # Interpolation grid
             xt = interp1d(ts, xs, kind='cubic', assume_sorted=True, axis=0)  # cubic interpolation
             vt = interp1d(ts, vs, kind='cubic', assume_sorted=True, axis=0)
@@ -79,8 +79,9 @@ if __name__ == '__main__':
             lc = LineCollection(segments, linewidths=lws, color='blue')
             ax.add_collection(lc)
         else:
-            ax.plot(xs[:, 0], xs[:, 1], c=colors[k], lw=3.5)
-
+            ax.scatter(xs[:, 0], xs[:, 1], c=colors[k], lw=3.5)
+    #ax.imshow()
+    matplotlib.pyplot.show()
     r = 1
     n_x = 100
     alpha = 0.7

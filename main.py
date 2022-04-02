@@ -69,7 +69,7 @@ if __name__ == "__main__":
     fig = matplotlib.pyplot.figure(figsize=(10, 10))
     ax = fig.add_subplot(1, 1, 1)
     ax.scatter(numpy.array(samples)[:, 1], numpy.array(samples)[:, 0], s=0.5, alpha=0.5)
-    ax.imshow(density, alpha=0.3)
+    #ax.imshow(density, alpha=0.3)
     matplotlib.pyplot.show()
     fig.savefig(f"{args.result_folder}/labrador_sampled.png")
 
@@ -89,3 +89,5 @@ if __name__ == "__main__":
         numpy.asarray(density), numpy.asarray(samples), bin_size=[7, 7]
     )
     print(f"TV distance is {tv_dist}")
+
+
