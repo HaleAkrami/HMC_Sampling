@@ -86,7 +86,7 @@ def continuous_energy_from_image_numpy(coord, xp, yp, zp, fill_value=None):
     :param fill_value: see interp2d (Note: you can this to enforce some trivial boundary conditions
     :return: energy (based on bilinear interpolation of zp on xp, yp grid. )
     """
-    return torch.log(interp2d_numpy(coord[0], coord[1], xp, yp, zp, fill_value))
+    return torch.log(interp2d_numpy(coord[0], coord[0], xp, yp, zp, fill_value))
 
 
 def interp2d_numpy(x,y,xp,yp,zp,fill_value):

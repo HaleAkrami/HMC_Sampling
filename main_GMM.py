@@ -39,8 +39,9 @@ if __name__ == '__main__':
     print("Visualize logs using: tensorboard --logdir={0}".format(log_dir))
     writer = SummaryWriter(log_dir)
 
-    sampler_list = [('MALA 0.1', samplers.hmc_integrate, {'epsilon': 0.1, 'k': 5, 'mh_reject': True})]
+    #sampler_list = [('MALA 0.1', samplers.hmc_integrate, {'epsilon': 0.1, 'k': 5, 'mh_reject': True})]
 
+    sampler_list = [('ESH-leap', samplers.leap_integrate, {'epsilon': 0.1})]
     n_steps = 5000  # number of gradient steps
 
     save = []
@@ -61,7 +62,7 @@ if __name__ == '__main__':
         print(exp_string)
         energy = e_model.energy
 
-        xs, vs, ts = sampler(energy, x0, n_steps, **kwargs)
+        xs, vs,ts = sampler(energy, x0, n_steps, **kwargs)
         #data_toy.plot_toy_density(plot_truth=True, x_s_t=xs)
         print('length', len(xs))
 

@@ -87,15 +87,15 @@ if __name__ == "__main__":
 
 
     # generate samples from true distribution
-    #sampler_list = [('MALA 0.1', samplers.hmc_integrate, {'epsilon': 0.01, 'k': 50, 'mh_reject': True})]
-    sampler_list = [('ND 0.1', samplers.newton_dynamics, {'epsilon': 0.1})]
-    num_samples = 50*100000
+    #sampler_list = [('MALA 0.1', samplers.hmc_integrate, {'epsilon': 0.1, 'k': 50, 'mh_reject': True})]
+    sampler_list = [('ESH-leap', samplers.leap_integrate, {'epsilon': 0.5})]
+    num_samples = 100000
     for k, (sampler_name, sampler, kwargs) in enumerate(sampler_list):
         x0 = t.tensor(
             [random.uniform(0,700), random.uniform(0,700)])  # Choose different modes for initialization, so no overlap
         energy = energy_fn
 
-        xs, vs, ts = sampler(energy, x0, num_samples , **kwargs)
+        xs, vs,ts = sampler(energy, x0, num_samples , **kwargs)
     # (scatter) plot the samples with image in background
         #FIXME remove burnin samples
         burn_samples=100

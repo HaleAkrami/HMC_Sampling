@@ -17,13 +17,13 @@ def esh_leap_step(xs, u, rs, energy, epsilon, grad=None, energy_scale=1., debug=
     """
     xs = t.autograd.Variable(xs, requires_grad=True)
     if grad is None:
-        grad = energy_scale * t.autograd.grad(energy(xs).sum(), [xs])[0]
+        grad = energy_scale * t.autograd.grad(energy(xs[0]).sum(), [xs])[0]
 
     u, rs, log_delta_t_0 = u_r_step(u, rs, grad, epsilon / 2.)  # Half step u and r
     xs.data = xs.data + epsilon * u  # Full step x
     if constraint:
         xs.data, u = billiards(xs.data, u)
-    grad = energy_scale * t.autograd.grad(energy(xs).sum(), [xs])[0]
+    grad = energy_scale * t.autograd.grad(energy(xs[0]).sum(), [xs])[0]
     u, rs, log_delta_t_1 = u_r_step(u, rs, grad, epsilon / 2.)  # half step u and r
 
     log_delta_t = t.logaddexp(log_delta_t_0, log_delta_t_1)
@@ -126,6 +126,7 @@ def leap_integrate_chain(energy, x, n_steps, epsilon, store=True, reservoir=Fals
     "Reservoir" sampling keeps a reservoir that ergodically samples from the entire chain.
     bc imposes boundary conditions at +-1 """
     # Turn of grad tracking manually. Can't use context manager because we do autograd inside
+    #x=x[0]
     if hasattr(energy, 'parameters'):
         save_grad_flags = []
         for p in energy.parameters():

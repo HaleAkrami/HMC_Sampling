@@ -27,7 +27,7 @@ from scipy.interpolate import interp1d
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--result_folder", type=str, default="results")
+    parser.add_argument("--result_folder", type=str, default="results/final_res")
     parser.add_argument("--seed", type=int, default=4)
     parser.add_argument("--sampler", default="HMC")
     parser.add_argument("--epsilon", type=float, default=0.1)
@@ -97,11 +97,12 @@ if __name__ == "__main__":
     ax.set_xlim([0, 700])
     ax.set_ylim([0, 700])
     matplotlib.pyplot.show()
-    fig.savefig(f"{args.result_folder}/fig/truer_sampled.png")
+    fig.savefig(f"{args.result_folder}/fig/true_sampled.png")
 
     # We have samples from two distributions. We use NPEET package to compute kldiv directly from samples.
     # NPEET needs nxd tensors
-    kldiv = NPEET.npeet.entropy_estimators.kldiv(samples, second_samples)
+    t=numpy.array(second_samples)
+    kldiv = NPEET.npeet.entropy_estimators.kldiv(samples, t)
     print(f"KL divergence is {kldiv}")
 
     # TV distance between discretized density
