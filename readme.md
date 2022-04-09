@@ -18,5 +18,9 @@ To run code for GMM run
 python main_GMM.py
 ```
 which gives you sampling for GMM using NUTS and HMC for different L and epsilon( the L and epsilon is hard-coded) 
-![alt text](https://github.com/HaleAkrami/HMC_Sampling/tree/main/results/1.png?raw=true)
+<p align="center">
+  <img src="https://github.com/HaleAkrami/HMC_Sampling/tree/main/results/1.png" width="350" title="hover text">
+  <img src="https://github.com/HaleAkrami/HMC_Sampling/tree/main/results/1.png" width="350" alt="accessibility text">
+</p>
+
 
