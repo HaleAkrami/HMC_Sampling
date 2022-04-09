@@ -20,9 +20,7 @@ python main_GMM.py
 which gives you sampling for GMM using NUTS and HMC for different L and epsilon( the L and epsilon is hard-coded) 
 ![My Image](../results/1.png)
 
-<p align="center">
-  <img src="https://github.com/HaleAkrami/HMC_Sampling/tree/main/results/1.png" width="350" title="hover text">
-  <img src="https://github.com/HaleAkrami/HMC_Sampling/tree/main/results/1.png" width="350" alt="accessibility text">
-</p>
+![1](https://user-images.githubusercontent.com/25341241/162552988-3aedb882-ef19-4733-a0bd-fe4f690cfe1e.png)
+
 
 
