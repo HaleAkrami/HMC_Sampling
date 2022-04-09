@@ -18,6 +18,5 @@ To run code for GMM run
 python main_GMM.py
 ```
 which gives you sampling for GMM using NUTS and HMC for different L and epsilon( the L and epsilon is hard-coded) 
-![plot](https://github.com/HaleAkrami/HMC_Sampling/tree/main/results/![trajectory_2D MOG-prior_MALA 0 1_{'epsilon'_ 0 1, 'k'_ 1, 'mh_reject'_ True}](https://user-images.githubusercontent.com/25341241/162552660-5e0adf09-8767-44b8-8e70-d6cd4b21dc59.png)
-)
+![alt text](https://github.com/HaleAkrami/HMC_Sampling/tree/main/results/![trajectory_2D MOG-prior_MALA 0 1_{'epsilon'_ 0 1, 'k'_ 1, 'mh_reject'_ True?raw=true)
 
