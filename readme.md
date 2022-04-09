@@ -13,6 +13,8 @@ Using any other approach for this is also fine.
 - We have provided NPEET as a submodule. To fetch the NPEET code correctly, you may have to pass `--recurse_submodule` flag with git pull/clone command.
 
 ## How to use?
-See `main.py` for suggestive use and homework document for more information. 
+To run code for GMM run 
+```
+python main_GMM.py
+```
 
-Note: The code should be executable with sampling as the root folder. 
