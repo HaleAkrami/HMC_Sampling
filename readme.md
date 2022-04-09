@@ -17,4 +17,6 @@ To run code for GMM run
 ```
 python main_GMM.py
 ```
+which gives you sampling for GMM using NUTS and HMC for different L and epsilon( the L and epsilon is hard-coded) 
+![plot](./directory_1/directory_2/.../directory_n/plot.png)
 
