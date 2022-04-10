@@ -24,3 +24,5 @@ To run code for gray_scale img run
 ```
 python main_img_save.py --result_folder 'final_res_more_seed' --seed sedd_num --sampler sampler_name(HMC/NUTS) --epsilon step_size --k path_length --step_size num_gradient --mh_reject Boolean
 ```
+<img width="643" alt="Screen Shot 2022-04-09 at 8 35 31 PM" src="https://user-images.githubusercontent.com/25341241/162600380-ba3fc298-c8fe-4d2b-bfaa-ed38978f1e06.png">
+
