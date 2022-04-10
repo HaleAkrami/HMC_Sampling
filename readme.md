@@ -26,3 +26,7 @@ python main_img_save.py --result_folder 'final_res_more_seed' --seed sedd_num --
 ```
 <img width="643" alt="Screen Shot 2022-04-09 at 8 35 31 PM" src="https://user-images.githubusercontent.com/25341241/162600380-ba3fc298-c8fe-4d2b-bfaa-ed38978f1e06.png">
 
+and to run gray_scaled image with multiple seed run
+```
+python main_img_multi_seed.py
+```
