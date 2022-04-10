@@ -20,3 +20,7 @@ python main_GMM.py
 which gives you sampling for GMM using NUTS and HMC for different L and epsilon.
 <img width="601" alt="Screen Shot 2022-04-09 at 7 46 29 PM" src="https://user-images.githubusercontent.com/25341241/162599035-4eaff375-4fc1-40b4-80e4-03a15c1b1bae.png">
 
+To run code for gray_scale img run 
+```
+python main_img_save.py --result_folder 'final_res_more_seed' --seed sedd_num --sampler sampler_name(HMC/NUTS) --epsilon step_size --k path_length --step_size num_gradient --mh_reject Boolean
+```
